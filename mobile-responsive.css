@@ -1,1002 +1,619 @@
-/* 모바일 반응형 CSS */
+/* ============================================= */
+/* 참조은치과 모바일 반응형 CSS - v12            */
+/* 헤더 로고 수정 + 전체 레이아웃 정리           */
+/* ============================================= */
 
-/* 기본 반응형 설정 */
-* {
-    box-sizing: border-box;
-}
-
-html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-}
-
-body {
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    max-width: 100vw;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* 모든 요소가 화면을 벗어나지 않도록 */
-* {
-    max-width: 100%;
-}
-
-table {
-    width: 100% !important;
-    table-layout: fixed;
-}
-
-/* 카카오맵 기본 스타일 (전체 화면 크기) */
-.elementor-widget-html iframe[src*="kakao"],
-.elementor-widget-html iframe[src*="daum"],
-iframe[src*="kakao"],
-iframe[src*="daum"],
-iframe[src*="map.kakao"],
-iframe[src*="dapi.kakao"] {
-    max-width: 100% !important;
+/* 기본 리셋 */
+*,
+*::before,
+*::after {
     box-sizing: border-box !important;
 }
 
-/* 언어 아이콘 스타일 개선 (전체 공통) */
-.trp-flag-image {
-    width: 24px !important;
-    height: auto !important;
-    border: 1px solid #e0e0e0 !important;
-    border-radius: 2px !important;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
-    vertical-align: middle !important;
+html {
+    overflow-x: hidden !important;
 }
 
-/* 태블릿 (1024px 이하) */
-@media (max-width: 1024px) {
-
-    /* 컨테이너 패딩 조정 */
-    .e-con-inner {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-    }
-
-    /* 텍스트 크기 조정 */
-    .elementor-heading-title {
-        font-size: 1.5rem !important;
-        line-height: 1.4 !important;
-    }
-
-    /* 이미지 컨테이너 */
-    .elementor-widget-image {
-        max-width: 100% !important;
-    }
-
-    /* 플립박스 조정 */
-    .elementor-flip-box {
-        margin-bottom: 20px !important;
-    }
+body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-/* 모바일 (768px 이하) */
-@media (max-width: 768px) {
-    /* -----------------------------------------------------------
-       가로 스크롤(Overflow) 방지 및 강제 리사이징 
-       ----------------------------------------------------------- */
+/* ============================================= */
+/* 모바일 768px 이하                             */
+/* ============================================= */
+@media screen and (max-width: 768px) {
 
-    /* 전체 페이지 */
+    /* ----------------------------------------- */
+    /* 1. 전역 오버플로우 제어                    */
+    /* ----------------------------------------- */
+    * {
+        max-width: 100vw !important;
+    }
+
     html,
-    body {
-        overflow-x: hidden !important;
-        max-width: 100vw !important;
-        width: 100% !important;
-        position: relative;
-    }
-
-    /* 루트 컨테이너 */
-    #content,
-    .site-main,
-    .page-content,
-    .elementor {
-        max-width: 100% !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-    }
-
-    /* 모든 iframe 기본 제한 */
-    iframe {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 지도 위젯 및 iframe 강제 리사이징 */
-    .elementor-element-19cc9e2>div,
-    .elementor-widget-html iframe,
-    .elementor-widget-html div,
-    embed,
-    object,
-    video {
-        max-width: 100% !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 카카오맵 전용 스타일 - 모든 가능한 선택자 */
-    .elementor-widget-html,
-    [id*="kakao"],
-    [class*="kakao"],
-    [id*="map"],
-    [class*="map"],
-    [id*="daum"],
-    [class*="daum"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-    }
-
-    /* 카카오맵 iframe 크기 제한 - 강력한 선택자 */
-    iframe[src*="kakao"],
-    iframe[src*="daum"],
-    iframe[src*="map.kakao"],
-    iframe[src*="dapi.kakao"],
-    iframe[src*="map.daum"],
-    .elementor-widget-html iframe[src*="kakao"],
-    .elementor-widget-html iframe[src*="daum"],
-    .elementor-widget-html iframe,
-    .elementor-widget-html iframe[src*="map"],
-    div iframe[src*="kakao"],
-    div iframe[src*="daum"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: 300px !important;
-        max-height: 400px !important;
-        min-height: 250px !important;
-        border: none !important;
-        display: block !important;
-        margin: 0 auto !important;
-        box-sizing: border-box !important;
-        object-fit: contain !important;
-    }
-
-    /* 지도 컨테이너 - 모든 가능한 컨테이너 */
-    .elementor-widget-html > div,
-    .map-container,
-    .kakao-map-container,
-    .daum-map-container,
-    [class*="map"] > div,
-    [id*="map"] > div {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-        margin: 0 auto !important;
-        overflow: hidden !important;
-    }
-
-    /* elementor-widget-html 내부 모든 요소 */
-    .elementor-widget-html * {
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    /* Swiper 슬라이드 강제 리사이징 */
-    .swiper,
-    .swiper-wrapper,
-    .swiper-slide {
-        width: 100% !important;
-        max-width: 100vw !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 모든 컨테이너 */
-    .e-con,
-    .e-con-inner,
+    body,
+    #page,
+    .site,
+    main,
+    header,
+    footer,
+    .elementor,
     .elementor-section,
     .elementor-container,
-    .elementor-row,
+    .e-con,
+    .e-con-inner,
+    .e-con-boxed,
+    .e-con-full,
     .elementor-column,
     .elementor-widget-wrap,
-    .elementor-widget-container {
+    .elementor-widget,
+    div,
+    section,
+    article,
+    nav,
+    figure {
         max-width: 100% !important;
         width: 100% !important;
-        box-sizing: border-box !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
-    /* ----------------------------------------------------------- */
-
-    /* 전체 레이아웃 */
-    body {
-        font-size: 15px !important;
-        line-height: 1.6 !important;
-    }
-
-    /* 헤더 조정 */
-    .elementor-location-header {
-        padding: 12px 0 !important;
-        width: 100% !important;
-        max-width: 100vw !important;
-    }
-
-    .header-sticky-custom {
-        padding: 12px 16px !important;
-        width: 100% !important;
+    /* ----------------------------------------- */
+    /* 2. 이미지 강제 리셋                        */
+    /* ----------------------------------------- */
+    img {
         max-width: 100% !important;
-    }
-
-    /* 로고 크기 조정 */
-    .elementor-widget-theme-site-logo,
-    .deta-logo {
-        max-width: 100% !important;
-    }
-
-    .elementor-widget-theme-site-logo img,
-    .deta-logo img {
-        max-width: 160px !important;
         width: auto !important;
         height: auto !important;
     }
 
-    /* 모바일 메뉴 */
-    .elementor-nav-menu--dropdown {
-        max-width: 100vw !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        background: white !important;
-        box-sizing: border-box !important;
-    }
-
-    .elementor-nav-menu--dropdown .elementor-item {
-        padding: 14px 20px !important;
-        font-size: 16px !important;
-        text-align: left !important;
-        width: 100% !important;
-        display: block !important;
-        box-sizing: border-box !important;
-    }
-
-    .elementor-menu-toggle {
-        padding: 8px !important;
-        min-width: 44px !important;
-        min-height: 44px !important;
-    }
-
-    /* 메인 컨테이너 */
-    .e-con-boxed>.e-con-inner {
-        padding: 24px 16px !important;
+    .elementor-widget-image img,
+    .elementor-image img,
+    .swiper-slide img {
         max-width: 100% !important;
-        width: 100% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-    }
-
-    .e-con-full {
-        padding: 24px 16px !important;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-
-    /* 섹션 패딩 조정 */
-    .elementor-section {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    /* 제목 크기 - 더 읽기 쉽게 */
-    .elementor-heading-title {
-        font-size: 1.25rem !important;
-        word-break: keep-all !important;
-        line-height: 1.5 !important;
-        margin-bottom: 16px !important;
-        margin-top: 0 !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-    }
-
-    h1.elementor-heading-title {
-        font-size: 1.75rem !important;
-        line-height: 1.4 !important;
-    }
-
-    h2.elementor-heading-title {
-        font-size: 1.5rem !important;
-        line-height: 1.4 !important;
-    }
-
-    h3.elementor-heading-title {
-        font-size: 1.2rem !important;
-        line-height: 1.4 !important;
-    }
-
-    h4.elementor-heading-title {
-        font-size: 1.1rem !important;
-    }
-
-    h5.elementor-heading-title,
-    h6.elementor-heading-title {
-        font-size: 1rem !important;
-    }
-
-    /* 텍스트 에디터 */
-    .elementor-text-editor {
-        font-size: 15px !important;
-        line-height: 1.7 !important;
-        text-align: left !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-        word-break: keep-all !important;
-    }
-
-    .elementor-text-editor p {
-        margin-bottom: 14px !important;
-        margin-top: 0 !important;
-    }
-
-    .elementor-text-editor p:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    .elementor-text-editor ul,
-    .elementor-text-editor ol {
-        padding-left: 24px !important;
-        margin-bottom: 14px !important;
-    }
-
-    .elementor-text-editor li {
-        margin-bottom: 8px !important;
-    }
-
-    /* 섹션 간격 조정 */
-    .elementor-section {
-        padding: 40px 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        max-width: 100% !important;
-    }
-
-    .e-con {
-        padding: 24px 0 !important;
-        margin: 0 !important;
-    }
-
-    /* 섹션 간 여백 */
-    .elementor-section + .elementor-section {
-        margin-top: 0 !important;
-    }
-
-    /* 버튼 */
-    .elementor-button {
-        padding: 14px 28px !important;
-        font-size: 15px !important;
-        min-height: 44px !important;
-        min-width: 120px !important;
-        margin: 8px 0 !important;
-        display: inline-block !important;
-        text-align: center !important;
-        box-sizing: border-box !important;
-    }
-
-    .elementor-button-wrapper {
-        padding: 0 16px !important;
-        text-align: center !important;
-    }
-
-    /* 플립박스 */
-    .elementor-flip-box {
-        min-height: 220px !important;
-        margin-bottom: 16px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    .elementor-flip-box__layer {
-        padding: 24px 16px !important;
-        box-sizing: border-box !important;
-    }
-
-    .elementor-flip-box__layer__title {
-        font-size: 1.15rem !important;
-        line-height: 1.4 !important;
-        margin-bottom: 12px !important;
-        word-break: keep-all !important;
-    }
-
-    .elementor-flip-box__layer__description {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-        word-break: keep-all !important;
-    }
-
-    .elementor-flip-box__button {
-        margin-top: 16px !important;
-    }
-
-    /* 슬라이드 */
-    .elementor-slides .swiper-slide {
-        min-height: 350px !important;
-    }
-
-    .swiper-slide-inner {
-        padding: 20px 15px !important;
-    }
-
-    .swiper-slide-contents {
-        padding: 15px !important;
-    }
-
-    /* 이미지 갤러리 */
-    .elementor-image-carousel .swiper-slide {
-        padding: 8px !important;
-    }
-
-    .elementor-image-carousel img {
         width: 100% !important;
         height: auto !important;
+        object-fit: cover !important;
     }
 
-    /* 위젯 간격 */
-    .elementor-widget {
-        margin-bottom: 20px !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-    }
+    /* ----------------------------------------- */
+    /* 3. 헤더 - 완전 재설계                      */
+    /* ----------------------------------------- */
 
-    .elementor-widget:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    /* 컬럼 레이아웃 */
-    .elementor-column {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-bottom: 24px !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        flex: 0 0 100% !important;
-    }
-
-    .elementor-column:last-child {
-        margin-bottom: 0 !important;
-    }
-
-    /* 컬럼 내부 패딩 */
-    .elementor-column .elementor-widget-wrap {
-        padding: 0 16px !important;
-    }
-
-    /* 이미지 위젯 */
-    .elementor-widget-image {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-        margin-bottom: 20px !important;
-    }
-
-    .elementor-widget-image img {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        display: block !important;
-    }
-
-    /* 이미지 정렬 */
-    .elementor-widget-image.elementor-align-center {
-        text-align: center !important;
-    }
-
-    .elementor-widget-image.elementor-align-left {
-        text-align: left !important;
-    }
-
-    .elementor-widget-image.elementor-align-right {
-        text-align: right !important;
-    }
-
-    /* 탭 메뉴 */
-    .e-n-tabs-heading {
-        flex-wrap: wrap !important;
-        gap: 10px !important;
-    }
-
-    .e-n-tab-title {
-        padding: 10px 15px !important;
-    }
-
-    /* 비디오 배경 */
-    .elementor-background-video-container {
-        min-height: 300px !important;
-    }
-
-    /* 폼 요소 */
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-        font-size: 16px !important;
-        /* iOS 확대 방지 */
-        padding: 12px !important;
-    }
-
-    /* 언어 선택기 */
-    .trp-ls-language-name {
+    /* 데스크탑 헤더 숨김 */
+    .elementor-element-4db9191b {
         display: none !important;
     }
 
-    .trp-flag-image {
-        margin-right: 0 !important;
-    }
-
-    /* Lottie 애니메이션 */
-    .e-lottie__container {
-        max-width: 100% !important;
+    /* 메인 헤더 컨테이너 */
+    header.elementor-location-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
         width: 100% !important;
+        z-index: 99999 !important;
+        background: #fff !important;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08) !important;
     }
 
-    /* 진행바 */
-    .progress-container-1,
-    .progress-container-2,
-    .progress-container-3,
-    .progress-container-4,
-    .progress-container-5 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 모든 텍스트 요소에 적절한 패딩 */
-    .elementor-widget-heading,
-    .elementor-widget-text-editor,
-    .elementor-widget-button {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    /* Flex 컨테이너 */
-    .e-flex {
-        flex-wrap: wrap !important;
-        gap: 16px !important;
-    }
-
-    /* 그리드 레이아웃 */
-    .elementor-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-        padding: 0 16px !important;
-    }
-}
-
-/* 소형 모바일 (480px 이하) */
-@media (max-width: 480px) {
-
-    /* 헤더 */
-    .header-sticky-custom {
-        padding: 10px 12px !important;
-    }
-
-    .elementor-widget-theme-site-logo img,
-    .deta-logo img {
-        max-width: 140px !important;
-    }
-
-    /* 메뉴 토글 버튼 */
-    .elementor-menu-toggle {
-        font-size: 20px !important;
-        padding: 6px !important;
-    }
-
-    /* 컨테이너 패딩 */
-    .e-con-boxed>.e-con-inner {
-        padding: 20px 12px !important;
-    }
-
-    .e-con-full {
-        padding: 20px 12px !important;
-    }
-
-    /* 제목 */
-    .elementor-heading-title {
-        font-size: 1.15rem !important;
-        padding: 0 12px !important;
-    }
-
-    h1.elementor-heading-title {
-        font-size: 1.6rem !important;
-    }
-
-    h2.elementor-heading-title {
-        font-size: 1.4rem !important;
-    }
-
-    h3.elementor-heading-title {
-        font-size: 1.2rem !important;
-    }
-
-    /* 텍스트 */
-    .elementor-text-editor {
-        font-size: 14px !important;
-        padding: 0 12px !important;
-    }
-
-    /* 버튼 */
-    .elementor-button {
-        padding: 12px 24px !important;
-        font-size: 14px !important;
-        min-width: 100px !important;
-    }
-
-    .elementor-button-wrapper {
-        padding: 0 12px !important;
-    }
-
-    /* 플립박스 */
-    .elementor-flip-box {
-        min-height: 200px !important;
-    }
-
-    /* 슬라이드 */
-    .elementor-slides .swiper-slide {
-        min-height: 350px !important;
-    }
-
-    /* 탭 */
-    .e-n-tab-title {
-        min-width: 100% !important;
-        padding: 8px 12px !important;
-        font-size: 13px !important;
-    }
-
-    /* 진행바 컨테이너 */
-    .progress-container-1,
-    .progress-container-2,
-    .progress-container-3,
-    .progress-container-4,
-    .progress-container-5 {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 12px !important;
-    }
-
-    /* 카카오맵 크기 조정 (소형 모바일) */
-    .elementor-widget-html iframe[src*="kakao"],
-    .elementor-widget-html iframe[src*="daum"],
-    iframe[src*="kakao"],
-    iframe[src*="daum"],
-    iframe[src*="map"] {
-        height: 280px !important;
-        max-height: 350px !important;
-        min-height: 220px !important;
-    }
-
-    .elementor-widget-html,
-    [id*="kakao"],
-    [class*="kakao"],
-    [id*="map"],
-    [class*="map"] {
-        padding: 0 12px !important;
-    }
-
-    .elementor-widget-html > div,
-    .map-container,
-    .kakao-map-container {
-        padding: 0 12px !important;
-    }
-
-    /* 이미지 위젯 패딩 조정 */
-    .elementor-widget-image {
-        padding: 0 12px !important;
-    }
-
-    /* 컬럼 내부 패딩 */
-    .elementor-column .elementor-widget-wrap {
-        padding: 0 12px !important;
-    }
-
-    /* Swiper 버튼 */
-    .elementor-swiper-button {
-        width: 35px !important;
-        height: 35px !important;
-    }
-
-    .elementor-swiper-button svg {
-        width: 15px !important;
-        height: 15px !important;
-    }
-
-    /* 페이지네이션 */
-    .swiper-pagination {
-        bottom: 10px !important;
-    }
-}
-
-/* 가로 모드 모바일 (최대 높이 500px) */
-@media (max-height: 500px) and (orientation: landscape) {
-    .elementor-slides .swiper-slide {
-        min-height: 100vh !important;
-    }
-
-    .swiper-slide-inner {
-        padding: 15px !important;
-    }
-}
-
-/* 터치 디바이스 최적화 */
-@media (hover: none) and (pointer: coarse) {
-
-    /* 터치 타겟 크기 확대 */
-    a,
-    button,
-    .elementor-button {
-        min-height: 44px !important;
-        min-width: 44px !important;
-    }
-
-    /* 호버 효과 제거 */
-    .elementor-flip-box:hover .elementor-flip-box__layer__overlay {
-        opacity: 1;
-    }
-
-    /* 스크롤 성능 향상 */
-    * {
-        -webkit-overflow-scrolling: touch;
-    }
-}
-
-/* 고해상도 디스플레이 최적화 */
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    img {
-        image-rendering: -webkit-optimize-contrast;
-    }
-}
-
-/* iOS 사파리 버그 수정 */
-@supports (-webkit-touch-callout: none) {
-
-    /* iOS 사파리 100vh 버그 수정 */
-    .elementor-slides .swiper-slide {
-        min-height: -webkit-fill-available !important;
-    }
-}
-
-/* 모바일 스무스 스크롤 개선 */
-@media (max-width: 768px) {
-    html {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    body {
-        position: relative;
-    }
-
-    /* 모바일에서 fixed 요소 버그 방지 */
-    .elementor-sticky {
-        position: -webkit-sticky;
-        position: sticky;
-    }
-}
-
-/* 접근성 개선 */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-}
-
-/* 추가 모바일 레이아웃 개선 */
-@media (max-width: 768px) {
-
-    /* 텍스트 중앙 정렬 해제 (가독성 향상) */
-    .elementor-widget-text-editor {
-        text-align: left !important;
-    }
-
-    /* 리스트 스타일 */
-    ul,
-    ol {
-        padding-left: 20px !important;
-    }
-
-    /* 간격 최적화 */
-    .elementor-spacer {
-        height: 20px !important;
-    }
-
-    /* 비디오 임베드 */
-    .elementor-video iframe,
-    .elementor-video video {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9;
-    }
-
-    /* 배경 이미지 */
-    .elementor-background-overlay {
-        opacity: 0.5 !important;
-    }
-
-    /* 아이콘 */
-    .elementor-icon {
-        font-size: 2rem !important;
-    }
-
-    /* 구분선 */
-    .elementor-divider {
-        margin: 15px 0 !important;
-    }
-
-    /* 그리드 레이아웃 */
-    .elementor-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    /* 카드/박스 요소 */
-    .elementor-widget-container {
-        padding: 15px !important;
-    }
-
-    /* 네비게이션 화살표 */
-    .swiper-button-next,
-    .swiper-button-prev {
-        width: 30px !important;
-        height: 30px !important;
-    }
-
-    /* 페이지네이션 */
-    .swiper-pagination {
-        bottom: 5px !important;
-    }
-
-    .swiper-pagination-bullet {
-        width: 8px !important;
-        height: 8px !important;
-    }
-
-    /* 카카오맵 추가 스타일 (모바일) - 강화 */
-    .elementor-widget-html {
-        width: 100% !important;
-        max-width: 100% !important;
-        overflow: hidden !important;
-        padding: 0 16px !important;
-        box-sizing: border-box !important;
-    }
-
-    /* 모든 iframe에 대한 추가 제한 */
-    iframe {
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-
-    /* 카카오맵 iframe 높이 제한 강화 - 모든 가능한 경우 */
-    iframe,
-    iframe[src*="kakao"],
-    iframe[src*="daum"],
-    iframe[src*="map.kakao"],
-    iframe[src*="dapi.kakao"],
-    iframe[src*="map.daum"],
-    .elementor-widget-html iframe,
-    .elementor-widget-html iframe[src*="kakao"],
-    .elementor-widget-html iframe[src*="daum"],
-    .elementor-widget-html iframe[src*="map"],
-    div iframe,
-    div iframe[src*="kakao"],
-    div iframe[src*="daum"],
-    [class*="map"] iframe,
-    [id*="map"] iframe {
-        height: 300px !important;
-        max-height: 400px !important;
-        min-height: 250px !important;
-        width: calc(100% - 32px) !important;
-        max-width: calc(100% - 32px) !important;
-        margin: 0 16px !important;
+    /* 모바일 헤더 (35a16fab) */
+    .elementor-element-35a16fab {
         display: block !important;
-        box-sizing: border-box !important;
-    }
-}
-
-/* 가로 모드 대응 */
-@media (max-width: 768px) and (orientation: landscape) {
-    .elementor-slides .swiper-slide {
-        min-height: 300px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    .elementor-section {
-        padding: 20px 0 !important;
-    }
-}
-
-/* 매우 작은 화면 (360px 이하) */
-@media (max-width: 360px) {
-    .elementor-heading-title {
-        font-size: 1.1rem !important;
-        padding: 0 10px !important;
-    }
-
-    h1.elementor-heading-title {
-        font-size: 1.5rem !important;
+    /* 헤더 내부 컨테이너 */
+    .elementor-element-35a16fab>.e-con-inner {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 10px 16px !important;
+        gap: 12px !important;
     }
 
-    h2.elementor-heading-title {
-        font-size: 1.3rem !important;
+    /* 로고 컨테이너 (2221af83) - 왼쪽 정렬 */
+    .elementor-element-2221af83 {
+        display: flex !important;
+        flex: 0 1 auto !important;
+        width: auto !important;
+        max-width: 60% !important;
+        min-width: 0 !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    h3.elementor-heading-title {
-        font-size: 1.15rem !important;
+    /* 로고 위젯 */
+    .elementor-element-20c082b5,
+    .elementor-element-20c082b5.elementor-widget-mobile__width-initial,
+    .deta-logo {
+        display: block !important;
+        width: auto !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        filter: none !important;
+        /* Override Elementor's brightness/invert filter */
     }
 
-    .elementor-widget-theme-site-logo img,
-    .deta-logo img {
-        max-width: 120px !important;
+    /* 로고 링크 */
+    .deta-logo a,
+    .elementor-element-20c082b5 a {
+        display: block !important;
+        line-height: 0 !important;
+    }
+
+    /* 로고 이미지 - 명시적 크기 */
+    .deta-logo img,
+    .elementor-element-20c082b5 img,
+    .elementor-element-35a16fab img {
+        display: block !important;
+        width: auto !important;
+        max-width: 140px !important;
+        height: 34px !important;
+        object-fit: contain !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    /* 메뉴 컨테이너 (448b0588) - 오른쪽 정렬 */
+    .elementor-element-448b0588 {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        width: auto !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 가로 메뉴 숨김 */
+    .elementor-nav-menu--main {
+        display: none !important;
+    }
+
+    /* 햄버거 메뉴 버튼 */
+    .elementor-menu-toggle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        padding: 10px !important;
+        background: #f5f5f5 !important;
+        border-radius: 10px !important;
+        border: none !important;
+    }
+
+    .elementor-menu-toggle svg {
+        width: 20px !important;
+        height: 20px !important;
+        fill: #333 !important;
+    }
+
+    /* 드롭다운 메뉴 */
+    .elementor-nav-menu--dropdown {
+        position: fixed !important;
+        top: 56px !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        background: #fff !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+        padding: 16px 0 !important;
+        border-radius: 0 0 16px 16px !important;
+    }
+
+    .elementor-nav-menu--dropdown li a {
+        display: block !important;
+        padding: 14px 20px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        color: #333 !important;
+    }
+
+    .elementor-nav-menu--dropdown li a:active {
+        background: #f8f8f8 !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 4. 메인 컨텐츠 여백                        */
+    /* ----------------------------------------- */
+
+    main#content {
+        padding-top: 56px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 5. 섹션 스타일                             */
+    /* ----------------------------------------- */
+
+    .e-con.e-parent {
+        padding: 48px 0 !important;
     }
 
     .e-con-boxed>.e-con-inner,
-    .e-con-full {
-        padding: 18px 10px !important;
+    .e-con-full.e-child {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 
-    .elementor-text-editor {
-        font-size: 14px !important;
-        padding: 0 10px !important;
+    /* 히어로 섹션 */
+    .elementor-element-be383c2 {
+        padding: 0 !important;
     }
 
-    .elementor-button {
-        padding: 12px 20px !important;
-        font-size: 14px !important;
+    .elementor-element-465e60e {
+        min-height: calc(100vh - 56px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+        padding: 32px 20px !important;
     }
 
-    .elementor-widget-image {
-        padding: 0 10px !important;
+    /* 히어로 텍스트 */
+    .elementor-element-54faddd .elementor-heading-title {
+        font-size: 11px !important;
+        letter-spacing: 2px !important;
+        color: rgba(255, 255, 255, 0.75) !important;
     }
 
-    .elementor-column .elementor-widget-wrap {
-        padding: 0 10px !important;
+    .elementor-element-f958154 .elementor-heading-title {
+        font-size: 26px !important;
+        line-height: 1.35 !important;
+        color: #fff !important;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3) !important;
     }
 
-    .progress-container-1,
-    .progress-container-2,
-    .progress-container-3,
-    .progress-container-4,
-    .progress-container-5 {
-        padding: 0 10px !important;
+    .elementor-element-c4aa861 img {
+        max-width: 180px !important;
+    }
+
+    .elementor-element-a5fd57f {
+        max-width: 36px !important;
+        margin: 24px auto !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 6. 타이포그래피                            */
+    /* ----------------------------------------- */
+
+    h1,
+    h1.elementor-heading-title {
+        font-size: 24px !important;
+        line-height: 1.35 !important;
+        font-weight: 700 !important;
+        margin: 0 0 14px !important;
+        word-break: keep-all !important;
+    }
+
+    h2,
+    h2.elementor-heading-title {
+        font-size: 21px !important;
+        line-height: 1.4 !important;
+        font-weight: 700 !important;
+        margin: 0 0 12px !important;
+        word-break: keep-all !important;
+    }
+
+    h3,
+    h3.elementor-heading-title {
+        font-size: 17px !important;
+        line-height: 1.45 !important;
+        font-weight: 600 !important;
+        margin: 0 0 10px !important;
+    }
+
+    .elementor-text-editor,
+    .elementor-text-editor p {
+        font-size: 15px !important;
+        line-height: 1.7 !important;
+        color: #555 !important;
+        word-break: keep-all !important;
+    }
+
+    /* 영문 소제목 */
+    .elementor-element-90f2a56 .elementor-heading-title,
+    .elementor-element-3ec001a .elementor-heading-title {
+        font-size: 10px !important;
+        letter-spacing: 1.5px !important;
+        color: #999 !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 7. 이미지 스타일                           */
+    /* ----------------------------------------- */
+
+    /* 헤더/로고 - 라운드 없음 */
+    header img,
+    footer img,
+    .deta-logo img {
+        border-radius: 0 !important;
+    }
+
+    /* 일반 콘텐츠 이미지 */
+    .elementor-widget-image img {
+        border-radius: 12px !important;
+    }
+
+    /* 아이콘/장식 */
+    .elementor-widget__width-initial img {
+        max-width: 50px !important;
+        border-radius: 0 !important;
+    }
+
+    /* 의료진 사진 */
+    .elementor-element-9d67653 img {
+        max-width: 250px !important;
+        width: 100% !important;
+        margin: 20px auto !important;
+        display: block !important;
+        border-radius: 16px !important;
+    }
+
+    /* 클리닉 사진 */
+    .elementor-element-00a7d5a img {
+        border-radius: 12px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 8. 레이아웃                                */
+    /* ----------------------------------------- */
+
+    .e-flex.e-con,
+    .e-con.e-child {
+        flex-direction: column !important;
+    }
+
+    /* 헤더만 예외 (가로) */
+    .elementor-element-35a16fab>.e-con-inner,
+    .elementor-element-35a16fab .e-con.e-child {
+        flex-direction: row !important;
+    }
+
+    .elementor-column,
+    .elementor-col-50,
+    .elementor-col-33,
+    .elementor-col-25 {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
+
+    .elementor-widget {
+        margin-bottom: 18px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 9. 플립박스                                */
+    /* ----------------------------------------- */
+
+    .elementor-flip-box {
+        min-height: 160px !important;
+        margin-bottom: 14px !important;
+        border-radius: 14px !important;
+        box-shadow: 0 3px 16px rgba(0, 0, 0, 0.05) !important;
     }
 
     .elementor-flip-box__layer {
-        padding: 20px 12px !important;
+        padding: 22px 18px !important;
     }
 
-    /* 카카오맵 크기 조정 (매우 작은 화면) */
-    iframe[src*="kakao"],
-    iframe[src*="daum"],
-    iframe[src*="map.kakao"],
-    iframe[src*="dapi.kakao"] {
-        height: 250px !important;
-        max-height: 320px !important;
-        min-height: 200px !important;
-        width: calc(100% - 20px) !important;
-        margin: 0 10px !important;
+    .elementor-flip-box__layer__title {
+        font-size: 16px !important;
+        font-weight: 700 !important;
     }
 
-    .elementor-widget-html {
-        padding: 0 10px !important;
+    .elementor-flip-box__layer__description {
+        font-size: 13px !important;
+        color: #666 !important;
+    }
+
+    .elementor-flip-box__button {
+        padding: 10px 16px !important;
+        font-size: 12px !important;
+        border-radius: 6px !important;
+    }
+
+    .elementor-element-3006471 {
+        gap: 14px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 10. 의료진 섹션                            */
+    /* ----------------------------------------- */
+
+    .elementor-element-585855d {
+        background: #f8f8f8 !important;
+    }
+
+    .elementor-element-73f46f8,
+    .elementor-element-2be79aa {
+        display: none !important;
+    }
+
+    .elementor-element-a2bae7e {
+        background: #fff !important;
+        border-radius: 18px !important;
+        padding: 24px 18px !important;
+        box-shadow: 0 3px 16px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 11. 버튼                                   */
+    /* ----------------------------------------- */
+
+    .elementor-button {
+        padding: 13px 22px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        margin: 8px auto !important;
+        display: block !important;
+        text-align: center !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 12. 슬라이더                               */
+    /* ----------------------------------------- */
+
+    .elementor-slides .swiper-slide {
+        min-height: 360px !important;
+    }
+
+    .swiper-slide-inner {
+        padding: 32px 20px !important;
+    }
+
+    .swiper-pagination-bullet {
+        width: 7px !important;
+        height: 7px !important;
+    }
+
+    .elementor-swiper-button {
+        display: none !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 13. 탭                                     */
+    /* ----------------------------------------- */
+
+    .e-n-tabs-heading {
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+    }
+
+    .e-n-tab-title {
+        padding: 10px 14px !important;
+        font-size: 13px !important;
+        border-radius: 18px !important;
+    }
+
+    .e-n-tab-title[aria-selected="true"] {
+        background: #222 !important;
+        color: #fff !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 14. 지도                                   */
+    /* ----------------------------------------- */
+
+    .elementor-widget-html iframe,
+    iframe {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: 200px !important;
+        border-radius: 10px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 15. 기타                                   */
+    /* ----------------------------------------- */
+
+    .elementor-divider-separator {
+        width: 36px !important;
+        margin: 0 auto !important;
+    }
+
+    .elementor-background-video-container {
+        display: none !important;
+    }
+
+    .elementor-widget-lottie {
+        max-width: 50px !important;
+        margin: 14px auto !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 16. 푸터                                   */
+    /* ----------------------------------------- */
+
+    footer.elementor-location-footer {
+        padding: 36px 18px !important;
+    }
+
+    footer .elementor-widget {
+        text-align: center !important;
+    }
+
+    footer p,
+    footer a {
+        font-size: 12px !important;
+    }
+
+    /* ----------------------------------------- */
+    /* 17. 테이블                                 */
+    /* ----------------------------------------- */
+
+    table {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        display: block !important;
+    }
+
+    pre,
+    code {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        white-space: pre-wrap !important;
+    }
+}
+
+/* ============================================= */
+/* 터치 최적화                                   */
+/* ============================================= */
+@media (hover: none) and (pointer: coarse) {
+
+    a,
+    button,
+    .elementor-button,
+    .elementor-menu-toggle {
+        min-height: 44px !important;
+    }
+}
+
+/* ============================================= */
+/* 작은 모바일 (375px 이하)                      */
+/* ============================================= */
+@media screen and (max-width: 375px) {
+    .elementor-element-f958154 .elementor-heading-title {
+        font-size: 22px !important;
+    }
+
+    h2,
+    h2.elementor-heading-title {
+        font-size: 19px !important;
+    }
+
+    .e-con-boxed>.e-con-inner {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .deta-logo img,
+    .elementor-element-20c082b5 img {
+        max-width: 120px !important;
+        height: 30px !important;
     }
 }
