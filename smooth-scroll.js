@@ -17,8 +17,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
+                // 모바일 메뉴 닫기
+                const menuToggle = document.querySelector('.elementor-menu-toggle');
+                const mobileMenu = document.querySelector('.elementor-nav-menu--dropdown');
+
+                if (menuToggle && mobileMenu && !mobileMenu.hasAttribute('aria-hidden')) {
+                    menuToggle.click();
+                }
+
                 // 헤더 높이 계산 (sticky 헤더가 있는 경우)
-                const header = document.querySelector('.header-sticky-custom');
+                const header = document.querySelector('.header-sticky-custom') ||
+                               document.querySelector('.elementor-location-header');
                 const headerHeight = header ? header.offsetHeight : 0;
 
                 // 타겟 위치 계산
@@ -29,6 +38,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+            }
+        });
+    });
+
+    // 모바일 메뉴 클릭 시 스크롤 방지
+    const menuToggles = document.querySelectorAll('.elementor-menu-toggle');
+    menuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const dropdown = this.parentElement.querySelector('.elementor-nav-menu--dropdown');
+            if (dropdown) {
+                const isHidden = dropdown.getAttribute('aria-hidden') === 'true';
+                dropdown.setAttribute('aria-hidden', !isHidden);
+                this.setAttribute('aria-expanded', isHidden);
             }
         });
     });
