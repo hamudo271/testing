@@ -5,18 +5,49 @@
     box-sizing: border-box;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
 body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100vw;
 }
 
 img {
     max-width: 100%;
     height: auto;
+    display: block;
+}
+
+/* 모든 요소가 화면을 벗어나지 않도록 */
+* {
+    max-width: 100%;
+}
+
+table {
+    width: 100% !important;
+    table-layout: fixed;
+}
+
+/* 언어 아이콘 스타일 개선 (전체 공통) */
+.trp-flag-image {
+    width: 24px !important;
+    height: auto !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 2px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+    vertical-align: middle !important;
 }
 
 /* 태블릿 (1024px 이하) */
 @media (max-width: 1024px) {
+
     /* 컨테이너 패딩 조정 */
     .e-con-inner {
         padding-left: 20px !important;
@@ -42,85 +73,362 @@ img {
 
 /* 모바일 (768px 이하) */
 @media (max-width: 768px) {
+    /* -----------------------------------------------------------
+       가로 스크롤(Overflow) 방지 및 강제 리사이징 
+       ----------------------------------------------------------- */
+
+    /* 전체 페이지 */
+    html,
+    body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        width: 100% !important;
+        position: relative;
+    }
+
+    /* 루트 컨테이너 */
+    #content,
+    .site-main,
+    .page-content,
+    .elementor {
+        max-width: 100% !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 지도 위젯 및 iframe 강제 리사이징 */
+    .elementor-element-19cc9e2>div,
+    .elementor-widget-html iframe,
+    .elementor-widget-html div,
+    iframe,
+    embed,
+    object,
+    video {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Swiper 슬라이드 강제 리사이징 */
+    .swiper,
+    .swiper-wrapper,
+    .swiper-slide {
+        width: 100% !important;
+        max-width: 100vw !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 모든 컨테이너 */
+    .e-con,
+    .e-con-inner,
+    .elementor-section,
+    .elementor-container,
+    .elementor-row,
+    .elementor-column,
+    .elementor-widget-wrap,
+    .elementor-widget-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* ----------------------------------------------------------- */
+
+    /* 전체 레이아웃 */
+    body {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
     /* 헤더 조정 */
     .elementor-location-header {
-        padding: 10px 0 !important;
+        padding: 12px 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
     }
 
     .header-sticky-custom {
-        padding: 10px 15px !important;
+        padding: 12px 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     /* 로고 크기 조정 */
-    .elementor-widget-theme-site-logo img {
-        max-width: 200px !important;
+    .elementor-widget-theme-site-logo,
+    .deta-logo {
+        max-width: 100% !important;
+    }
+
+    .elementor-widget-theme-site-logo img,
+    .deta-logo img {
+        max-width: 160px !important;
+        width: auto !important;
         height: auto !important;
     }
 
     /* 모바일 메뉴 */
     .elementor-nav-menu--dropdown {
         max-width: 100vw !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background: white !important;
+        box-sizing: border-box !important;
     }
 
     .elementor-nav-menu--dropdown .elementor-item {
-        padding: 15px 20px !important;
+        padding: 14px 20px !important;
         font-size: 16px !important;
+        text-align: left !important;
+        width: 100% !important;
+        display: block !important;
+        box-sizing: border-box !important;
     }
 
-    /* 메인 섹션 */
-    .e-con-boxed > .e-con-inner {
-        padding: 30px 20px !important;
+    .elementor-menu-toggle {
+        padding: 8px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
     }
 
-    /* 제목 크기 */
+    /* 메인 컨테이너 */
+    .e-con-boxed>.e-con-inner {
+        padding: 24px 16px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .e-con-full {
+        padding: 24px 16px !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* 섹션 패딩 조정 */
+    .elementor-section {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* 제목 크기 - 더 읽기 쉽게 */
     .elementor-heading-title {
-        font-size: 1.3rem !important;
+        font-size: 1.25rem !important;
         word-break: keep-all !important;
         line-height: 1.5 !important;
+        margin-bottom: 16px !important;
+        margin-top: 0 !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
     }
 
     h1.elementor-heading-title {
-        font-size: 1.8rem !important;
+        font-size: 1.75rem !important;
+        line-height: 1.4 !important;
     }
 
     h2.elementor-heading-title {
         font-size: 1.5rem !important;
+        line-height: 1.4 !important;
     }
 
     h3.elementor-heading-title {
         font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+    }
+
+    h4.elementor-heading-title {
+        font-size: 1.1rem !important;
+    }
+
+    h5.elementor-heading-title,
+    h6.elementor-heading-title {
+        font-size: 1rem !important;
     }
 
     /* 텍스트 에디터 */
     .elementor-text-editor {
-        font-size: 14px !important;
-        line-height: 1.6 !important;
+        font-size: 15px !important;
+        line-height: 1.7 !important;
+        text-align: left !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        word-break: keep-all !important;
+    }
+
+    .elementor-text-editor p {
+        margin-bottom: 14px !important;
+        margin-top: 0 !important;
+    }
+
+    .elementor-text-editor p:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .elementor-text-editor ul,
+    .elementor-text-editor ol {
+        padding-left: 24px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .elementor-text-editor li {
+        margin-bottom: 8px !important;
+    }
+
+    /* 섹션 간격 조정 */
+    .elementor-section {
+        padding: 40px 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .e-con {
+        padding: 24px 0 !important;
+        margin: 0 !important;
+    }
+
+    /* 섹션 간 여백 */
+    .elementor-section + .elementor-section {
+        margin-top: 0 !important;
     }
 
     /* 버튼 */
     .elementor-button {
-        padding: 12px 24px !important;
-        font-size: 14px !important;
+        padding: 14px 28px !important;
+        font-size: 15px !important;
+        min-height: 44px !important;
+        min-width: 120px !important;
+        margin: 8px 0 !important;
+        display: inline-block !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-button-wrapper {
+        padding: 0 16px !important;
+        text-align: center !important;
     }
 
     /* 플립박스 */
     .elementor-flip-box {
-        min-height: 250px !important;
-        margin-bottom: 15px !important;
+        min-height: 220px !important;
+        margin-bottom: 16px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-flip-box__layer {
+        padding: 24px 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-flip-box__layer__title {
+        font-size: 1.15rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+        word-break: keep-all !important;
+    }
+
+    .elementor-flip-box__layer__description {
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        word-break: keep-all !important;
+    }
+
+    .elementor-flip-box__button {
+        margin-top: 16px !important;
     }
 
     /* 슬라이드 */
     .elementor-slides .swiper-slide {
-        min-height: 400px !important;
+        min-height: 350px !important;
     }
 
     .swiper-slide-inner {
-        padding: 20px !important;
+        padding: 20px 15px !important;
+    }
+
+    .swiper-slide-contents {
+        padding: 15px !important;
     }
 
     /* 이미지 갤러리 */
     .elementor-image-carousel .swiper-slide {
-        padding: 10px !important;
+        padding: 8px !important;
+    }
+
+    .elementor-image-carousel img {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* 위젯 간격 */
+    .elementor-widget {
+        margin-bottom: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .elementor-widget:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* 컬럼 레이아웃 */
+    .elementor-column {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-bottom: 24px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        flex: 0 0 100% !important;
+    }
+
+    .elementor-column:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    /* 컬럼 내부 패딩 */
+    .elementor-column .elementor-widget-wrap {
+        padding: 0 16px !important;
+    }
+
+    /* 이미지 위젯 */
+    .elementor-widget-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        margin-bottom: 20px !important;
+    }
+
+    .elementor-widget-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+    }
+
+    /* 이미지 정렬 */
+    .elementor-widget-image.elementor-align-center {
+        text-align: center !important;
+    }
+
+    .elementor-widget-image.elementor-align-left {
+        text-align: left !important;
+    }
+
+    .elementor-widget-image.elementor-align-right {
+        text-align: right !important;
     }
 
     /* 탭 메뉴 */
@@ -131,9 +439,6 @@ img {
 
     .e-n-tab-title {
         padding: 10px 15px !important;
-        font-size: 14px !important;
-        flex: 1 1 auto !important;
-        min-width: calc(50% - 5px) !important;
     }
 
     /* 비디오 배경 */
@@ -146,7 +451,8 @@ img {
     input[type="email"],
     input[type="tel"],
     textarea {
-        font-size: 16px !important; /* iOS 확대 방지 */
+        font-size: 16px !important;
+        /* iOS 확대 방지 */
         padding: 12px !important;
     }
 
@@ -158,55 +464,108 @@ img {
     .trp-flag-image {
         margin-right: 0 !important;
     }
+
+    /* Lottie 애니메이션 */
+    .e-lottie__container {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+
+    /* 진행바 */
+    .progress-container-1,
+    .progress-container-2,
+    .progress-container-3,
+    .progress-container-4,
+    .progress-container-5 {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 모든 텍스트 요소에 적절한 패딩 */
+    .elementor-widget-heading,
+    .elementor-widget-text-editor,
+    .elementor-widget-button {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Flex 컨테이너 */
+    .e-flex {
+        flex-wrap: wrap !important;
+        gap: 16px !important;
+    }
+
+    /* 그리드 레이아웃 */
+    .elementor-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        padding: 0 16px !important;
+    }
 }
 
 /* 소형 모바일 (480px 이하) */
 @media (max-width: 480px) {
+
     /* 헤더 */
     .header-sticky-custom {
-        padding: 8px 10px !important;
+        padding: 10px 12px !important;
     }
 
-    .elementor-widget-theme-site-logo img {
-        max-width: 150px !important;
+    .elementor-widget-theme-site-logo img,
+    .deta-logo img {
+        max-width: 140px !important;
     }
 
     /* 메뉴 토글 버튼 */
     .elementor-menu-toggle {
         font-size: 20px !important;
+        padding: 6px !important;
     }
 
     /* 컨테이너 패딩 */
-    .e-con-boxed > .e-con-inner {
-        padding: 20px 15px !important;
+    .e-con-boxed>.e-con-inner {
+        padding: 20px 12px !important;
+    }
+
+    .e-con-full {
+        padding: 20px 12px !important;
     }
 
     /* 제목 */
     .elementor-heading-title {
-        font-size: 1.1rem !important;
+        font-size: 1.15rem !important;
+        padding: 0 12px !important;
     }
 
     h1.elementor-heading-title {
-        font-size: 1.5rem !important;
+        font-size: 1.6rem !important;
     }
 
     h2.elementor-heading-title {
-        font-size: 1.3rem !important;
+        font-size: 1.4rem !important;
     }
 
     h3.elementor-heading-title {
-        font-size: 1.1rem !important;
+        font-size: 1.2rem !important;
     }
 
     /* 텍스트 */
     .elementor-text-editor {
-        font-size: 13px !important;
+        font-size: 14px !important;
+        padding: 0 12px !important;
     }
 
     /* 버튼 */
     .elementor-button {
-        padding: 10px 20px !important;
-        font-size: 13px !important;
+        padding: 12px 24px !important;
+        font-size: 14px !important;
+        min-width: 100px !important;
+    }
+
+    .elementor-button-wrapper {
+        padding: 0 12px !important;
     }
 
     /* 플립박스 */
@@ -233,7 +592,18 @@ img {
     .progress-container-4,
     .progress-container-5 {
         width: 100% !important;
-        max-width: 280px !important;
+        max-width: 100% !important;
+        padding: 0 12px !important;
+    }
+
+    /* 이미지 위젯 패딩 조정 */
+    .elementor-widget-image {
+        padding: 0 12px !important;
+    }
+
+    /* 컬럼 내부 패딩 */
+    .elementor-column .elementor-widget-wrap {
+        padding: 0 12px !important;
     }
 
     /* Swiper 버튼 */
@@ -266,8 +636,11 @@ img {
 
 /* 터치 디바이스 최적화 */
 @media (hover: none) and (pointer: coarse) {
+
     /* 터치 타겟 크기 확대 */
-    a, button, .elementor-button {
+    a,
+    button,
+    .elementor-button {
         min-height: 44px !important;
         min-width: 44px !important;
     }
@@ -284,7 +657,8 @@ img {
 }
 
 /* 고해상도 디스플레이 최적화 */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
     img {
         image-rendering: -webkit-optimize-contrast;
     }
@@ -292,6 +666,7 @@ img {
 
 /* iOS 사파리 버그 수정 */
 @supports (-webkit-touch-callout: none) {
+
     /* iOS 사파리 100vh 버그 수정 */
     .elementor-slides .swiper-slide {
         min-height: -webkit-fill-available !important;
@@ -323,5 +698,147 @@ img {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* 추가 모바일 레이아웃 개선 */
+@media (max-width: 768px) {
+
+    /* 텍스트 중앙 정렬 해제 (가독성 향상) */
+    .elementor-widget-text-editor {
+        text-align: left !important;
+    }
+
+    /* 리스트 스타일 */
+    ul,
+    ol {
+        padding-left: 20px !important;
+    }
+
+    /* 간격 최적화 */
+    .elementor-spacer {
+        height: 20px !important;
+    }
+
+    /* 비디오 임베드 */
+    .elementor-video iframe,
+    .elementor-video video {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+    }
+
+    /* 배경 이미지 */
+    .elementor-background-overlay {
+        opacity: 0.5 !important;
+    }
+
+    /* 아이콘 */
+    .elementor-icon {
+        font-size: 2rem !important;
+    }
+
+    /* 구분선 */
+    .elementor-divider {
+        margin: 15px 0 !important;
+    }
+
+    /* 그리드 레이아웃 */
+    .elementor-grid {
+        grid-template-columns: 1fr !important;
+        gap: 15px !important;
+    }
+
+    /* 카드/박스 요소 */
+    .elementor-widget-container {
+        padding: 15px !important;
+    }
+
+    /* 네비게이션 화살표 */
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    /* 페이지네이션 */
+    .swiper-pagination {
+        bottom: 5px !important;
+    }
+
+    .swiper-pagination-bullet {
+        width: 8px !important;
+        height: 8px !important;
+    }
+}
+
+/* 가로 모드 대응 */
+@media (max-width: 768px) and (orientation: landscape) {
+    .elementor-slides .swiper-slide {
+        min-height: 300px !important;
+    }
+
+    .elementor-section {
+        padding: 20px 0 !important;
+    }
+}
+
+/* 매우 작은 화면 (360px 이하) */
+@media (max-width: 360px) {
+    .elementor-heading-title {
+        font-size: 1.1rem !important;
+        padding: 0 10px !important;
+    }
+
+    h1.elementor-heading-title {
+        font-size: 1.5rem !important;
+    }
+
+    h2.elementor-heading-title {
+        font-size: 1.3rem !important;
+    }
+
+    h3.elementor-heading-title {
+        font-size: 1.15rem !important;
+    }
+
+    .elementor-widget-theme-site-logo img,
+    .deta-logo img {
+        max-width: 120px !important;
+    }
+
+    .e-con-boxed>.e-con-inner,
+    .e-con-full {
+        padding: 18px 10px !important;
+    }
+
+    .elementor-text-editor {
+        font-size: 14px !important;
+        padding: 0 10px !important;
+    }
+
+    .elementor-button {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+    }
+
+    .elementor-widget-image {
+        padding: 0 10px !important;
+    }
+
+    .elementor-column .elementor-widget-wrap {
+        padding: 0 10px !important;
+    }
+
+    .progress-container-1,
+    .progress-container-2,
+    .progress-container-3,
+    .progress-container-4,
+    .progress-container-5 {
+        padding: 0 10px !important;
+    }
+
+    .elementor-flip-box__layer {
+        padding: 20px 12px !important;
     }
 }
