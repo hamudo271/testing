@@ -107,26 +107,33 @@ iframe[src*="dapi.kakao"] {
         overflow-x: hidden !important;
     }
 
+    /* 모든 iframe 기본 제한 */
+    iframe {
+        max-width: 100% !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
     /* 지도 위젯 및 iframe 강제 리사이징 */
     .elementor-element-19cc9e2>div,
     .elementor-widget-html iframe,
     .elementor-widget-html div,
-    iframe,
     embed,
     object,
     video {
         max-width: 100% !important;
         width: 100% !important;
-        height: auto !important;
         box-sizing: border-box !important;
     }
 
-    /* 카카오맵 전용 스타일 */
+    /* 카카오맵 전용 스타일 - 모든 가능한 선택자 */
     .elementor-widget-html,
     [id*="kakao"],
     [class*="kakao"],
     [id*="map"],
-    [class*="map"] {
+    [class*="map"],
+    [id*="daum"],
+    [class*="daum"] {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 16px !important;
@@ -134,12 +141,18 @@ iframe[src*="dapi.kakao"] {
         overflow: hidden !important;
     }
 
-    /* 카카오맵 iframe 크기 제한 */
-    .elementor-widget-html iframe[src*="kakao"],
-    .elementor-widget-html iframe[src*="daum"],
+    /* 카카오맵 iframe 크기 제한 - 강력한 선택자 */
     iframe[src*="kakao"],
     iframe[src*="daum"],
-    iframe[src*="map"] {
+    iframe[src*="map.kakao"],
+    iframe[src*="dapi.kakao"],
+    iframe[src*="map.daum"],
+    .elementor-widget-html iframe[src*="kakao"],
+    .elementor-widget-html iframe[src*="daum"],
+    .elementor-widget-html iframe,
+    .elementor-widget-html iframe[src*="map"],
+    div iframe[src*="kakao"],
+    div iframe[src*="daum"] {
         width: 100% !important;
         max-width: 100% !important;
         height: 300px !important;
@@ -149,17 +162,28 @@ iframe[src*="dapi.kakao"] {
         display: block !important;
         margin: 0 auto !important;
         box-sizing: border-box !important;
+        object-fit: contain !important;
     }
 
-    /* 지도 컨테이너 */
+    /* 지도 컨테이너 - 모든 가능한 컨테이너 */
     .elementor-widget-html > div,
     .map-container,
-    .kakao-map-container {
+    .kakao-map-container,
+    .daum-map-container,
+    [class*="map"] > div,
+    [id*="map"] > div {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 16px !important;
         box-sizing: border-box !important;
         margin: 0 auto !important;
+        overflow: hidden !important;
+    }
+
+    /* elementor-widget-html 내부 모든 요소 */
+    .elementor-widget-html * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     /* Swiper 슬라이드 강제 리사이징 */
@@ -848,7 +872,7 @@ iframe[src*="dapi.kakao"] {
         height: 8px !important;
     }
 
-    /* 카카오맵 추가 스타일 (모바일) */
+    /* 카카오맵 추가 스타일 (모바일) - 강화 */
     .elementor-widget-html {
         width: 100% !important;
         max-width: 100% !important;
@@ -863,17 +887,30 @@ iframe[src*="dapi.kakao"] {
         width: 100% !important;
     }
 
-    /* 카카오맵 iframe 높이 제한 강화 */
+    /* 카카오맵 iframe 높이 제한 강화 - 모든 가능한 경우 */
+    iframe,
     iframe[src*="kakao"],
     iframe[src*="daum"],
     iframe[src*="map.kakao"],
-    iframe[src*="dapi.kakao"] {
+    iframe[src*="dapi.kakao"],
+    iframe[src*="map.daum"],
+    .elementor-widget-html iframe,
+    .elementor-widget-html iframe[src*="kakao"],
+    .elementor-widget-html iframe[src*="daum"],
+    .elementor-widget-html iframe[src*="map"],
+    div iframe,
+    div iframe[src*="kakao"],
+    div iframe[src*="daum"],
+    [class*="map"] iframe,
+    [id*="map"] iframe {
         height: 300px !important;
         max-height: 400px !important;
         min-height: 250px !important;
         width: calc(100% - 32px) !important;
+        max-width: calc(100% - 32px) !important;
         margin: 0 16px !important;
         display: block !important;
+        box-sizing: border-box !important;
     }
 }
 
