@@ -1,0 +1,49 @@
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>정확한 진단, 최소한의 치료</title>
+	<atom:link href="https://charmjoeun.com/en/feed/" rel="self" type="application/rss+xml" />
+	<link>https://charmjoeun.com/en</link>
+	<description></description>
+	<lastbuilddate>Wed, 07 May 2025 01:19:08 +0000</lastbuilddate>
+	<language>en-US</language>
+	<sy:updateperiod>
+	hourly	</sy:updateperiod>
+	<sy:updatefrequency>
+	1	</sy:updatefrequency>
+	
+
+<image>
+	<url>https://charmjoeun.com/wp-content/uploads/2025/07/참조은-파비콘-150x150.png</url>
+	<title>정확한 진단, 최소한의 치료</title>
+	<link>https://charmjoeun.com/en</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Hello world!</title>
+		<link>https://charmjoeun.com/en/hello-world/</link>
+					<comments>https://charmjoeun.com/en/hello-world/#comments</comments>
+		
+		<dc:creator><![CDATA[chamjoendental]]></dc:creator>
+		<pubdate>Wed, 07 May 2025 01:19:08 +0000</pubdate>
+				<category><![CDATA[Uncategorized]]></category>
+		<guid ispermalink="false">http://chamjoendental.mycafe24.com//?p=1</guid>
+
+					<description><![CDATA[Welcome to WordPress. This is your first post. Edit or delete it, then start writing!]]></description>
+										<content:encoded><![CDATA[<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>]]></content:encoded>
+					
+					<wfw:commentrss>https://charmjoeun.com/en/hello-world/feed/</wfw:commentrss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>
